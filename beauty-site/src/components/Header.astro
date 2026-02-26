@@ -1,0 +1,150 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Главная' },
+  { href: '/catalog', label: 'Каталог' },
+  { href: '/services', label: 'Услуги' },
+  { href: '/blog', label: 'Блог' },
+  { href: '/contacts', label: 'Контакты' },
+];
+
+function isActive(href: string): boolean {
+  if (href === '/') return currentPath === '/';
+  return currentPath.startsWith(href);
+}
+---
+
+<header id="site-header" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+  <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex items-center justify-between">
+    <!-- Логотип -->
+    <a href="/" class="flex items-center gap-2">
+      <span class="font-heading text-2xl font-bold text-primary">СС</span>
+      <span class="font-heading text-lg font-semibold text-text">Стиль Салон</span>
+    </a>
+
+    <!-- Навигация desktop -->
+    <nav class="hidden md:flex items-center gap-6" aria-label="Основная навигация">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'font-medium transition-colors',
+            isActive(link.href) ? 'text-primary' : 'text-text hover:text-primary',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Правая часть desktop -->
+    <div class="hidden md:flex items-center gap-4">
+      <a href="tel:+79244496355" class="text-sm text-text-secondary">8-924-449-63-55</a>
+      <a
+        href="/contacts"
+        class="bg-primary text-white font-semibold rounded-xl px-6 py-2.5 hover:bg-primary-dark transition-all"
+      >
+        Получить консультацию
+      </a>
+    </div>
+
+    <!-- Кнопка бургер (mobile) -->
+    <button
+      id="burger-btn"
+      class="md:hidden flex flex-col justify-center items-center w-10 h-10 gap-1.5"
+      aria-label="Открыть меню"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-0.5 bg-text transition-all"></span>
+      <span class="block w-6 h-0.5 bg-text transition-all"></span>
+      <span class="block w-6 h-0.5 bg-text transition-all"></span>
+    </button>
+  </div>
+
+  <!-- Мобильное меню -->
+  <div
+    id="mobile-menu"
+    class="fixed inset-0 bg-burgundy z-50 flex flex-col opacity-0 pointer-events-none transition-opacity duration-300"
+    aria-hidden="true"
+  >
+    <!-- Верх: логотип + закрыть -->
+    <div class="flex items-center justify-between px-4 h-16">
+      <a href="/" class="flex items-center gap-2">
+        <span class="font-heading text-2xl font-bold text-primary">СС</span>
+        <span class="font-heading text-lg font-semibold text-white">Стиль Салон</span>
+      </a>
+      <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center" aria-label="Закрыть меню">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Навигация -->
+    <nav class="flex-1 flex flex-col items-center justify-center gap-6" aria-label="Мобильная навигация">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'mobile-nav-link text-2xl font-heading transition-colors',
+            isActive(link.href) ? 'text-primary' : 'text-white hover:text-primary',
+          ]}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Низ: телефон + WhatsApp -->
+    <div class="flex flex-col items-center gap-4 pb-10">
+      <a href="tel:+79244496355" class="text-gray-400 text-sm">8-924-449-63-55</a>
+      <a
+        href="https://wa.me/89244496355"
+        class="bg-cta text-white font-semibold rounded-xl px-8 py-3 hover:bg-cta-dark transition-all"
+      >
+        Написать в WhatsApp
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.getElementById('site-header')!;
+  const burgerBtn = document.getElementById('burger-btn')!;
+  const closeMenuBtn = document.getElementById('close-menu-btn')!;
+  const mobileMenu = document.getElementById('mobile-menu')!;
+  const mobileNavLinks = mobileMenu.querySelectorAll('.mobile-nav-link');
+
+  // Scroll shadow
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header.classList.add('shadow-sm', 'backdrop-blur-md', 'bg-white/90');
+      header.classList.remove('bg-white');
+    } else {
+      header.classList.remove('shadow-sm', 'backdrop-blur-md', 'bg-white/90');
+      header.classList.add('bg-white');
+    }
+  });
+
+  function openMenu() {
+    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+    mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    burgerBtn.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+    mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    burgerBtn.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  burgerBtn.addEventListener('click', openMenu);
+  closeMenuBtn.addEventListener('click', closeMenu);
+  mobileNavLinks.forEach((link) => link.addEventListener('click', closeMenu));
+</script>

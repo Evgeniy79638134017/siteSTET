@@ -1,30 +1,19 @@
 ---
-const title = 'Стиль Салон — оборудование для салонов красоты в Благовещенске';
-const description = 'Всё бьюти-оборудование в одном месте. Прямые поставки, экспертная консультация, гарантия. Создай свой идеальный салон красоты с нами!';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
-    <style>
-      @import '../styles/global.css';
-    </style>
-  </head>
-  <body class="bg-white text-text">
-    <main class="min-h-screen flex items-center justify-center">
-      <div class="text-center px-6">
-        <p class="text-primary font-heading text-4xl font-bold mb-2">СС</p>
-        <h1 class="font-heading text-3xl md:text-5xl font-bold text-burgundy mb-4">Стиль Салон</h1>
-        <p class="text-text-secondary text-lg mb-8">Магазин оборудования для салонов красоты</p>
-        <p class="text-primary font-medium">Сайт в разработке</p>
-      </div>
-    </main>
-  </body>
-</html>
+<BaseLayout
+  title="Стиль Салон — оборудование для салонов красоты в Благовещенске"
+  description="Всё бьюти-оборудование в одном месте. Прямые поставки, экспертная консультация, гарантия. Создай свой идеальный салон красоты с нами!"
+>
+  <section class="min-h-[60vh] flex items-center justify-center bg-primary-light">
+    <div class="text-center px-6 py-20">
+      <p class="text-primary font-heading text-5xl font-bold mb-2">СС</p>
+      <h1 class="font-heading text-3xl md:text-5xl font-bold text-burgundy mb-4">Стиль Салон</h1>
+      <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto">Магазин оборудования для салонов красоты. Сайт в разработке.</p>
+      <a href="https://wa.me/89244496355" class="inline-block bg-cta text-white font-semibold text-lg rounded-xl px-10 py-4 shadow-lg hover:shadow-xl hover:bg-cta-dark transition-all">
+        Написать в WhatsApp
+      </a>
+    </div>
+  </section>
+</BaseLayout>
