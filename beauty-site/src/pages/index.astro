@@ -1,19 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Advantages from '../components/Advantages.astro';
 ---
 
 <BaseLayout
   title="Стиль Салон — оборудование для салонов красоты в Благовещенске"
-  description="Всё бьюти-оборудование в одном месте. Прямые поставки, экспертная консультация, гарантия. Создай свой идеальный салон красоты с нами!"
+  description="Всё бьюти-оборудование в одном месте — от эконом до VIP. Прямые поставки, экспертная консультация, гарантия. Создай свой идеальный салон красоты с нами!"
 >
-  <section class="min-h-[60vh] flex items-center justify-center bg-primary-light">
-    <div class="text-center px-6 py-20">
-      <p class="text-primary font-heading text-5xl font-bold mb-2">СС</p>
-      <h1 class="font-heading text-3xl md:text-5xl font-bold text-burgundy mb-4">Стиль Салон</h1>
-      <p class="text-text-secondary text-lg mb-8 max-w-xl mx-auto">Магазин оборудования для салонов красоты. Сайт в разработке.</p>
-      <a href="https://wa.me/89244496355" class="inline-block bg-cta text-white font-semibold text-lg rounded-xl px-10 py-4 shadow-lg hover:shadow-xl hover:bg-cta-dark transition-all">
-        Написать в WhatsApp
-      </a>
-    </div>
-  </section>
+  <Hero />
+  <Advantages />
 </BaseLayout>
