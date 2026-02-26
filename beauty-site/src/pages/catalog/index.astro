@@ -1,0 +1,146 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const products = (await getCollection('catalog')).sort((a, b) => a.data.order - b.data.order);
+
+const categoryLabels: Record<string, string> = {
+  manicure: 'Маникюр',
+  pedicure: 'Педикюр',
+  sterilization: 'Стерилизация',
+  hairdressing: 'Парикмахерская',
+  cosmetology: 'Косметология',
+  waiting: 'Зона ожидания',
+  kits: 'Комплекты',
+};
+
+const filters = [
+  { key: 'all', label: 'Все' },
+  { key: 'manicure', label: 'Маникюр' },
+  { key: 'pedicure', label: 'Педикюр' },
+  { key: 'sterilization', label: 'Стерилизация' },
+  { key: 'hairdressing', label: 'Парикмахерская' },
+  { key: 'cosmetology', label: 'Косметология' },
+  { key: 'waiting', label: 'Зона ожидания' },
+  { key: 'kits', label: 'Комплекты' },
+];
+---
+
+<BaseLayout
+  title="Каталог оборудования — Стиль Салон"
+  description="Маникюр, педикюр, стерилизация, парикмахерская, косметология. Всё оборудование для салона красоты в наличии в Благовещенске."
+>
+  <!-- Hero -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <nav class="flex gap-2 text-sm text-text-secondary mb-8">
+        <a href="/" class="hover:text-primary">Главная</a>
+        <span>/</span>
+        <span class="text-text">Каталог</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-burgundy">Каталог оборудования</h1>
+      <p class="text-text-secondary text-lg mt-4">Всё для вашего салона — от эконом до VIP класса</p>
+    </div>
+  </section>
+
+  <!-- Фильтры -->
+  <div class="bg-white sticky top-16 md:top-20 z-30 py-4 border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="flex flex-wrap gap-2" id="catalog-filters">
+        {filters.map((f) => (
+          <button
+            data-category={f.key}
+            class:list={[
+              'rounded-full px-4 py-2 text-sm font-medium transition-all',
+              f.key === 'all'
+                ? 'bg-primary text-white'
+                : 'bg-gray-100 text-text-secondary hover:bg-gray-200',
+            ]}
+          >
+            {f.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Сетка товаров -->
+  <section class="bg-white py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="catalog-grid">
+        {products.map((entry) => (
+          <article
+            data-category={entry.data.category}
+            class="bg-white rounded-2xl shadow-md overflow-hidden hover:shadow-lg hover:-translate-y-1 transition-all"
+          >
+            <!-- Placeholder изображения -->
+            <div class="aspect-[4/3] bg-gradient-to-br from-primary-light to-warm-pink flex items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-primary/30">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+              </svg>
+            </div>
+
+            <!-- Контент -->
+            <div class="p-5 md:p-6">
+              <span class="bg-warm-pink text-primary text-xs font-medium rounded-full px-3 py-1 inline-block">
+                {categoryLabels[entry.data.category]}
+              </span>
+              <h2 class="font-heading text-lg font-semibold text-text mt-2">
+                <a href={`/catalog/${entry.id}`} class="hover:text-primary transition-colors">
+                  {entry.data.title}
+                </a>
+              </h2>
+              <p class="text-text-secondary text-sm mt-2 line-clamp-2">{entry.data.description}</p>
+
+              <div class="flex items-center justify-between mt-4">
+                <span class="text-cta font-bold text-xl">от {entry.data.priceFrom}</span>
+                {entry.data.brand && (
+                  <span class="text-text-secondary text-xs">{entry.data.brand}</span>
+                )}
+              </div>
+
+              <a href={`/catalog/${entry.id}`} class="text-primary font-semibold text-sm hover:underline mt-3 inline-block">
+                Подробнее &rarr;
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script>
+  const filters = document.getElementById('catalog-filters');
+  const grid = document.getElementById('catalog-grid');
+
+  if (filters && grid) {
+    const buttons = filters.querySelectorAll<HTMLButtonElement>('button[data-category]');
+    const cards = grid.querySelectorAll<HTMLElement>('article[data-category]');
+
+    buttons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const category = btn.dataset.category;
+
+        // Обновить активную кнопку
+        buttons.forEach((b) => {
+          b.classList.remove('bg-primary', 'text-white');
+          b.classList.add('bg-gray-100', 'text-text-secondary');
+        });
+        btn.classList.remove('bg-gray-100', 'text-text-secondary');
+        btn.classList.add('bg-primary', 'text-white');
+
+        // Показать/скрыть карточки
+        cards.forEach((card) => {
+          if (category === 'all' || card.dataset.category === category) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+  }
+</script>
