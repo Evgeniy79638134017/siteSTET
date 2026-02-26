@@ -1,0 +1,103 @@
+---
+const myths = [
+  {
+    question: 'На Wildberries всё то же самое и дешевле',
+    answer: 'На маркетплейсах нет консультации — вы не знаете, подойдёт ли кресло под ваш рост и задачи. Качество непредсказуемо: 264 000 жалоб на подделки в 2024 году. Нет гарантийного сервиса в вашем городе. А если придёт брак — попробуйте вернуть педикюрное кресло весом 30 кг через ПВЗ. У нас — пришли, потрогали, посидели в кресле, получили консультацию. И гарантия год по чеку.',
+  },
+  {
+    question: 'Можно сэкономить на вытяжке — это не так важно',
+    answer: 'Вытяжка — это ваше здоровье. Пыль от ногтей оседает в лёгких. Через 3-5 лет без вытяжки — хронические проблемы с дыханием. Мы всегда говорим: на вытяжке экономить нельзя. Рекомендуем Торнадель — проверенный бренд, есть модели от 5 000 ₽ до профессиональных за 38 000 ₽.',
+  },
+  {
+    question: 'Дорогая вытяжка — значит качественная',
+    answer: 'Не всегда. Есть вытяжки за 38 000 ₽ с мощным мотором, которые работают лучше моделей за 60 000 ₽. Цена зависит от бренда и дизайна, а не только от мощности. Приходите — покажем разницу, включим, сравните сами. Всегда говорим правду — и уже клиент решает сам.',
+  },
+];
+---
+
+<section class="bg-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <!-- Заголовок -->
+    <div class="text-center">
+      <span class="text-primary font-semibold text-sm tracking-widest uppercase">Важно знать</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-text mt-2">Дёшево — дорого обходится</h2>
+      <p class="text-text-secondary mt-3">Разбираем популярные заблуждения о покупке оборудования</p>
+    </div>
+
+    <!-- Аккордеон -->
+    <div class="max-w-3xl mx-auto mt-12" id="myths-accordion">
+      {myths.map((myth, i) => (
+        <div class="border border-gray-200 rounded-2xl overflow-hidden mb-4" data-accordion-item>
+          <button
+            type="button"
+            class="w-full flex justify-between items-center p-5 md:p-6 text-left bg-white hover:bg-gray-50 transition-colors"
+            data-accordion-btn
+            aria-expanded={i === 0 ? 'true' : 'false'}
+          >
+            <span class="font-semibold text-lg text-text pr-4">{myth.question}</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class:list={['shrink-0 text-text-secondary transition-transform duration-300', i === 0 && 'rotate-180']}
+              data-accordion-arrow
+            >
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div
+            class="overflow-hidden transition-[max-height] duration-300 ease-in-out"
+            data-accordion-content
+            style={i === 0 ? '' : 'max-height: 0'}
+          >
+            <p class="p-5 md:p-6 pt-0 text-text-secondary leading-relaxed">{myth.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const accordion = document.getElementById('myths-accordion')!;
+  const items = accordion.querySelectorAll('[data-accordion-item]');
+
+  // Set initial max-height for the first (open) item
+  const firstContent = items[0]?.querySelector<HTMLElement>('[data-accordion-content]');
+  if (firstContent) {
+    firstContent.style.maxHeight = firstContent.scrollHeight + 'px';
+  }
+
+  items.forEach((item) => {
+    const btn = item.querySelector<HTMLButtonElement>('[data-accordion-btn]')!;
+    const content = item.querySelector<HTMLElement>('[data-accordion-content]')!;
+    const arrow = item.querySelector<SVGElement>('[data-accordion-arrow]')!;
+
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      items.forEach((otherItem) => {
+        const otherBtn = otherItem.querySelector<HTMLButtonElement>('[data-accordion-btn]')!;
+        const otherContent = otherItem.querySelector<HTMLElement>('[data-accordion-content]')!;
+        const otherArrow = otherItem.querySelector<SVGElement>('[data-accordion-arrow]')!;
+        otherBtn.setAttribute('aria-expanded', 'false');
+        otherContent.style.maxHeight = '0';
+        otherArrow.classList.remove('rotate-180');
+      });
+
+      // Toggle current (open if was closed)
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        arrow.classList.add('rotate-180');
+      }
+    });
+  });
+</script>
