@@ -1,0 +1,145 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+
+const brands = ['Томспа', 'Имидж Мастер', 'Торнадель', 'Swam Beauty', 'Армед', 'Монофикс', 'Пылесосы Макс', 'Анвикор'];
+---
+
+<BaseLayout
+  title="О магазине — Стиль Салон | Оборудование для салонов красоты"
+  description="Семейный бизнес с душой. 6+ лет на рынке, 7+ официальных дилерств. Всё бьюти-оборудование в одном месте в Благовещенске."
+>
+  <!-- Секция 1: Hero -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <nav class="flex gap-2 text-sm text-text-secondary mb-8">
+        <a href="/" class="hover:text-primary">Главная</a>
+        <span>/</span>
+        <span class="text-text">О магазине</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-burgundy">Семейный бизнес с душой</h1>
+      <p class="text-text-secondary text-lg md:text-xl mt-4 max-w-2xl">Мы не просто продаём оборудование — мы помогаем мастерам создавать салоны мечты</p>
+    </div>
+  </section>
+
+  <!-- Секция 2: История Марины -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center max-w-7xl mx-auto px-4 md:px-6">
+      <!-- Фото-плейсхолдер -->
+      <div class="rounded-2xl overflow-hidden shadow-lg relative">
+        <div class="bg-gradient-to-br from-burgundy to-burgundy-light aspect-[3/4] flex items-center justify-center">
+          <span class="text-white/50 text-lg">Фото Марины</span>
+        </div>
+        <div class="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-sm rounded-xl p-3">
+          <p class="text-text font-semibold text-sm">Марина — основатель</p>
+          <p class="text-text-secondary text-xs">Мастер → Предприниматель</p>
+        </div>
+      </div>
+
+      <!-- Текст -->
+      <div>
+        <span class="text-primary font-semibold text-sm tracking-widest uppercase">Наша история</span>
+        <h2 class="font-heading text-2xl md:text-3xl font-bold text-text mt-2">Из мастера — в предпринимателя</h2>
+        <div class="flex flex-col gap-4 mt-4 text-text-secondary leading-relaxed">
+          <p>Всё началось с простой идеи: в Благовещенске не было магазина, где мастер мог бы найти всё необходимое в одном месте. Приходилось заказывать из Москвы, ждать неделями, рисковать с качеством.</p>
+          <p>Марина сама прошла этот путь — работала мастером, знала все боли изнутри. И решила: нужен магазин, где можно прийти, потрогать, сравнить и получить честную консультацию.</p>
+          <p>Сегодня «Стиль Салон» — это 6+ лет на рынке, более 100 наименований оборудования и мебели, 7+ официальных дилерств ведущих брендов. И главное — сотни мастеров, которые создали свои салоны вместе с нами.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 3: Цифры -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-7xl mx-auto px-4 md:px-6">
+      <div class="text-center">
+        <div class="font-heading text-4xl md:text-5xl font-bold text-primary">6+</div>
+        <p class="text-text-secondary text-sm mt-2">лет на рынке</p>
+      </div>
+      <div class="text-center">
+        <div class="font-heading text-4xl md:text-5xl font-bold text-primary">100+</div>
+        <p class="text-text-secondary text-sm mt-2">наименований оборудования</p>
+      </div>
+      <div class="text-center">
+        <div class="font-heading text-4xl md:text-5xl font-bold text-primary">7+</div>
+        <p class="text-text-secondary text-sm mt-2">официальных дилерств</p>
+      </div>
+      <div class="text-center">
+        <div class="font-heading text-4xl md:text-5xl font-bold text-primary">350 000 ₽</div>
+        <p class="text-text-secondary text-sm mt-2">рекордный заказ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 4: Принципы -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="text-center">
+      <span class="text-primary font-semibold text-sm tracking-widest uppercase">Философия</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-text mt-2">Наши принципы</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-12 max-w-4xl mx-auto px-4 md:px-6">
+      <!-- Делай сейчас -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-all">
+        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-lg text-text">Делай сейчас</h3>
+        <p class="text-text-secondary text-sm mt-2 leading-relaxed">Не откладывай на потом. Быстрые поставки, быстрые решения. Клиент не должен ждать.</p>
+      </div>
+
+      <!-- Честность -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-all">
+        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-lg text-text">Честность</h3>
+        <p class="text-text-secondary text-sm mt-2 leading-relaxed">Никогда не продаём заведомо плохой товар. Всегда говорим о минусах. Клиент решает сам.</p>
+      </div>
+
+      <!-- Удобство клиента -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-all">
+        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-lg text-text">Удобство клиента</h3>
+        <p class="text-text-secondary text-sm mt-2 leading-relaxed">Чтобы клиенту было удобно купить. Разные способы оплаты, доставка, консультация.</p>
+      </div>
+
+      <!-- Всё в одном месте -->
+      <div class="bg-white rounded-2xl border border-gray-100 p-6 hover:shadow-md transition-all">
+        <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center mb-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <h3 class="font-semibold text-lg text-text">Всё в одном месте</h3>
+        <p class="text-text-secondary text-sm mt-2 leading-relaxed">Мастер пришёл — мастер счастливый. Не нужно бегать по разным магазинам и сайтам.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 5: Дилерства -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-text text-center">Официальные дилерства</h2>
+      <p class="text-text-secondary text-center mt-3">Работаем напрямую с ведущими производителями</p>
+      <div class="flex flex-wrap justify-center gap-6 md:gap-8 mt-12">
+        {brands.map((brand) => (
+          <div class="bg-white rounded-xl px-6 py-4 shadow-sm flex items-center justify-center">
+            <span class="font-semibold text-text">{brand}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 6: CTA -->
+  <CTASection />
+</BaseLayout>
