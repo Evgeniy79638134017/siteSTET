@@ -1,0 +1,86 @@
+---
+const cases = [
+  {
+    title: 'Мастер с нуля',
+    steps: [
+      { color: 'bg-red-100 text-red-500', text: 'Не знала про соцконтракт, не знала что покупать' },
+      { color: 'bg-yellow-100 text-yellow-600', text: 'Рассказали про контракт → обучилась → получила 350 000 ₽' },
+      { color: 'bg-green-100 text-success', text: 'Подобрали полный комплект оборудования за 250 000 ₽' },
+    ],
+    result: 'Работающий кабинет маникюра и педикюра',
+  },
+  {
+    title: 'От дома к салону',
+    steps: [
+      { color: 'bg-red-100 text-red-500', text: 'Начала работать дома с минимальным набором' },
+      { color: 'bg-yellow-100 text-yellow-600', text: 'Набрала базу клиентов, докупала оборудование' },
+      { color: 'bg-green-100 text-success', text: 'Арендовала помещение, оснастили салон полностью' },
+    ],
+    result: 'Собственный салон с постоянными клиентами',
+  },
+  {
+    title: 'Развитие мастера',
+    steps: [
+      { color: 'bg-red-100 text-red-500', text: 'Начала с маникюра — стол, лампа, аппарат' },
+      { color: 'bg-yellow-100 text-yellow-600', text: 'Через год решила добавить педикюр' },
+      { color: 'bg-green-100 text-success', text: 'Подобрали кресло, аппарат и вытяжку под бюджет' },
+    ],
+    result: 'Двойной доход — маникюр и педикюр',
+  },
+  {
+    title: 'Возвращение с маркетплейса',
+    steps: [
+      { color: 'bg-red-100 text-red-500', text: 'Заказала оборудование на Wildberries — дешевле же' },
+      { color: 'bg-yellow-100 text-yellow-600', text: 'Пришёл брак, возврат крупногабарита — кошмар' },
+      { color: 'bg-green-100 text-success', text: 'Пришла к нам — потрогала, сравнила, купила' },
+    ],
+    result: 'Больше на маркетплейсах не закупается',
+  },
+];
+---
+
+<section class="bg-primary-light py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 md:px-6">
+    <!-- Заголовок -->
+    <div class="text-center">
+      <span class="text-primary font-semibold text-sm tracking-widest uppercase">Результаты</span>
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-text mt-2">Истории наших мастеров</h2>
+      <p class="text-text-secondary mt-3 max-w-2xl mx-auto">Каждый из них начинал с вопроса — и мы помогли найти ответ</p>
+    </div>
+
+    <!-- Сетка -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12">
+      {cases.map((item, i) => (
+        <div class="bg-white rounded-2xl shadow-md p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-10 h-10 rounded-full bg-primary-light flex items-center justify-center text-primary font-bold text-sm">
+            {i + 1}
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-4">{item.title}</h3>
+
+          <div class="flex flex-col gap-2 mt-4">
+            {item.steps.map((step) => (
+              <div class="flex items-start gap-3">
+                <div class:list={['w-6 h-6 rounded-full shrink-0 flex items-center justify-center', step.color]}>
+                  <span class="w-2 h-2 rounded-full bg-current"></span>
+                </div>
+                <span class="text-text-secondary text-sm">{step.text}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-4 pt-4 border-t border-gray-100 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="text-success shrink-0">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+            <span class="font-medium text-text">{item.result}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Под карточками -->
+    <div class="mt-8 text-center">
+      <a href="/cases" class="text-primary font-semibold hover:underline">Смотреть все кейсы &rarr;</a>
+    </div>
+  </div>
+</section>
