@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Пользовательское соглашение — Стиль Салон"
+  description="Условия использования сайта магазина Стиль Салон."
+>
+  <!-- Hero -->
+  <section class="bg-primary-light py-12 md:py-16">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <nav class="flex gap-2 text-sm text-text-secondary mb-8">
+        <a href="/" class="hover:text-primary">Главная</a>
+        <span>/</span>
+        <span class="text-text">Пользовательское соглашение</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl font-bold text-burgundy">Пользовательское соглашение</h1>
+    </div>
+  </section>
+
+  <!-- Содержимое -->
+  <section class="bg-white py-12 md:py-16">
+    <div class="max-w-3xl mx-auto px-4 md:px-6 prose-content">
+      <h2>1. Общие положения</h2>
+      <p>Настоящее соглашение регулирует использование сайта stilsalon.ru (далее — Сайт). Владелец сайта: ИП, магазин «Стиль Салон», г. Благовещенск.</p>
+      <p>Используя Сайт, вы соглашаетесь с условиями настоящего соглашения. Если вы не согласны с какими-либо условиями, пожалуйста, прекратите использование Сайта.</p>
+
+      <h2>2. Описание услуг</h2>
+      <p>Сайт предоставляет информацию об оборудовании для салонов красоты, доступном в магазине «Стиль Салон».</p>
+      <p>Сайт не является интернет-магазином — оформление и оплата заказов производятся при личном обращении или через мессенджеры (WhatsApp, Telegram).</p>
+
+      <h2>3. Информация о товарах</h2>
+      <p>Цены, характеристики и наличие товаров на Сайте носят информационный характер и не являются публичной офертой (ст. 437 ГК РФ).</p>
+      <p>Актуальную информацию о ценах и наличии уточняйте по телефону <a href="tel:+79244496355">8-924-449-63-55</a>.</p>
+
+      <h2>4. Интеллектуальная собственность</h2>
+      <p>Все материалы Сайта (тексты, изображения, дизайн, логотипы) являются собственностью владельца Сайта и защищены законодательством РФ об интеллектуальной собственности.</p>
+      <p>Использование материалов Сайта без письменного разрешения владельца запрещено.</p>
+
+      <h2>5. Ограничение ответственности</h2>
+      <p>Владелец Сайта не несёт ответственности за:</p>
+      <ul>
+        <li>Временную недоступность Сайта по техническим причинам</li>
+        <li>Содержание внешних сайтов, на которые ведут ссылки с Сайта</li>
+        <li>Действия пользователей, нарушающие настоящее соглашение</li>
+      </ul>
+
+      <h2>6. Применимое право</h2>
+      <p>Настоящее соглашение регулируется законодательством Российской Федерации. Все споры разрешаются в соответствии с действующим законодательством РФ по месту нахождения владельца Сайта.</p>
+
+      <h2>7. Контакты</h2>
+      <p>По вопросам, связанным с использованием Сайта:</p>
+      <ul>
+        <li>Телефон: <a href="tel:+79244496355">8-924-449-63-55</a></li>
+        <li>Адрес: г. Благовещенск, ул. Центральная, Л31, Чигири</li>
+      </ul>
+
+      <p class="mt-8 text-text-secondary text-sm">Дата публикации: 1 января 2025 г.</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .prose-content h2 {
+    font-family: var(--font-heading);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  .prose-content p {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+  .prose-content strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+  .prose-content ul {
+    color: var(--color-text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+  .prose-content li {
+    margin-bottom: 0.25rem;
+  }
+  .prose-content a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+  .prose-content a:hover {
+    color: var(--color-primary-dark);
+  }
+</style>

@@ -15,7 +15,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-12">
 
       <!-- Эконом -->
-      <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-all flex flex-col">
+      <div class="bg-white rounded-2xl shadow-md p-8 hover:shadow-lg transition-all flex flex-col opacity-0 translate-y-4 duration-700" data-reveal>
         <span class="bg-warm-pink text-primary text-sm rounded-full px-3 py-1 inline-block self-start">Старт</span>
         <h3 class="font-heading text-2xl font-bold text-text mt-4">Эконом</h3>
         <p class="text-cta font-bold text-3xl mt-2">от 50 000 &#8381;</p>
@@ -51,7 +51,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16
       </div>
 
       <!-- Стандарт (выделенная) -->
-      <div class="bg-white rounded-2xl shadow-xl p-8 ring-2 ring-primary hover:shadow-2xl transition-all relative flex flex-col">
+      <div class="bg-white rounded-2xl shadow-xl p-8 ring-2 ring-primary hover:shadow-2xl transition-all relative flex flex-col opacity-0 translate-y-4 duration-700" data-reveal data-reveal-delay="100">
         <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-white text-xs font-semibold rounded-full px-4 py-1.5">Популярный</span>
         <span class="bg-warm-pink text-primary text-sm rounded-full px-3 py-1 inline-block self-start">Оптимальный</span>
         <h3 class="font-heading text-2xl font-bold text-text mt-4">Стандарт</h3>
@@ -92,7 +92,7 @@ const checkIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16
       </div>
 
       <!-- VIP -->
-      <div class="bg-gradient-to-br from-burgundy to-burgundy-light rounded-2xl shadow-md p-8 hover:shadow-lg transition-all text-white flex flex-col">
+      <div class="bg-gradient-to-br from-burgundy to-burgundy-light rounded-2xl shadow-md p-8 hover:shadow-lg transition-all text-white flex flex-col opacity-0 translate-y-4 duration-700" data-reveal data-reveal-delay="200">
         <span class="bg-white/20 text-white text-sm rounded-full px-3 py-1 inline-block self-start backdrop-blur-sm">Премиум</span>
         <h3 class="font-heading text-2xl font-bold text-white mt-4">VIP</h3>
         <p class="font-bold text-3xl mt-2"><span class="bg-cta rounded-lg px-3 py-1 inline-block">от 300 000 &#8381;</span></p>

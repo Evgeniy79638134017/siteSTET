@@ -59,8 +59,8 @@ const advantages = [
 
     <!-- Сетка карточек -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-      {advantages.map((item) => (
-        <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all">
+      {advantages.map((item, i) => (
+        <div class="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:-translate-y-1 transition-all opacity-0 translate-y-4 duration-700" data-reveal data-reveal-delay={String(i * 100)}>
           <div class="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
