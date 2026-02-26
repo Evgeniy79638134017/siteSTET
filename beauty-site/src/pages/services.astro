@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import CTASection from '../components/CTASection.astro';
+---
+
+<BaseLayout
+  title="Услуги — Стиль Салон | Не просто магазин, а ваш партнёр"
+  description="Экспертная консультация, помощь с соцконтрактом, комплектация кабинета под ключ, доставка по Дальнему Востоку, гарантия и сервис."
+>
+  <!-- Секция 1: Hero -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <nav class="flex gap-2 text-sm text-text-secondary mb-8">
+        <a href="/" class="hover:text-primary">Главная</a>
+        <span>/</span>
+        <span class="text-text">Услуги</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-burgundy">Не просто магазин — ваш партнёр в бьюти-бизнесе</h1>
+      <p class="text-text-secondary text-lg md:text-xl mt-4 max-w-2xl">Помогаем на каждом этапе — от идеи до работающего салона</p>
+    </div>
+  </section>
+
+  <!-- Секция 2: Услуги -->
+  <section class="bg-white py-16 md:py-24">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <!-- Экспертная консультация -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Экспертная консультация</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Подберём оборудование под ваш бюджет, задачи и размер помещения. Расскажем о плюсах и минусах каждого варианта. Честно.</p>
+          <div class="mt-4 bg-primary-light rounded-xl px-4 py-2.5 text-sm text-primary font-medium">Бесплатно</div>
+        </div>
+
+        <!-- Помощь с соцконтрактом -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Помощь с соцконтрактом</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Поможем составить бизнес-план для получения социального контракта. Подскажем, какое оборудование включить в заявку, чтобы уложиться в бюджет и получить всё необходимое.</p>
+          <div class="mt-4 bg-primary-light rounded-xl px-4 py-2.5 text-sm text-primary font-medium">Бюджет от 150 000 до 350 000 ₽</div>
+        </div>
+
+        <!-- Комплектация под ключ -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Комплектация под ключ</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Три готовых комплекта — Эконом, Стандарт и VIP. Или соберём индивидуальный набор под ваши задачи. От маникюрного стола до мебели для зоны ожидания.</p>
+          <div class="mt-4 bg-primary-light rounded-xl px-4 py-2.5 text-sm text-primary font-medium">Эконом от 50 000 ₽</div>
+        </div>
+
+        <!-- Доставка -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Доставка</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Самовывоз из магазина в Благовещенске. Доставка по городу. Отправка по всему Дальнему Востоку транспортными компаниями. Крупногабарит — до двери.</p>
+        </div>
+
+        <!-- Гарантия и сервис -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Гарантия и сервис</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Гарантия год по чеку на всё оборудование. Возврат и ремонт брака без лишних вопросов. Мы на связи даже после покупки — поможем, если что-то пойдёт не так.</p>
+        </div>
+
+        <!-- Расчёт бюджета -->
+        <div class="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 hover:shadow-lg transition-all">
+          <div class="w-14 h-14 rounded-2xl bg-primary-light flex items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="8" y1="10" x2="12" y2="10"></line>
+              <line x1="8" y1="14" x2="10" y2="14"></line>
+              <line x1="8" y1="18" x2="10" y2="18"></line>
+              <line x1="14" y1="14" x2="16" y2="14"></line>
+              <line x1="14" y1="18" x2="16" y2="18"></line>
+              <line x1="12" y1="12" x2="12" y2="20"></line>
+            </svg>
+          </div>
+          <h3 class="font-heading text-xl font-bold text-text mt-5">Расчёт бюджета</h3>
+          <p class="text-text-secondary leading-relaxed mt-3">Рассчитаем стоимость оснащения вашего кабинета или салона. Подскажем, на чём можно сэкономить, а на чём — категорически нельзя. Вытяжка и рециркулятор — это ваше здоровье.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 3: Как мы работаем -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-5xl mx-auto px-4 md:px-6">
+      <h2 class="font-heading text-3xl md:text-4xl font-bold text-text text-center">Как мы работаем</h2>
+
+      <div class="flex flex-col md:flex-row gap-8 md:gap-4 mt-12 relative">
+        <!-- Соединительная линия (desktop) -->
+        <div class="hidden md:block absolute top-5 left-[calc(12.5%+20px)] right-[calc(12.5%+20px)] h-0.5 bg-primary/20"></div>
+
+        <!-- Шаг 1 -->
+        <div class="flex-1 text-center relative">
+          <div class="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto relative z-10">1</div>
+          <h3 class="font-semibold text-text mt-3">Расскажите о задаче</h3>
+          <p class="text-text-secondary text-sm mt-1">Позвоните или напишите в WhatsApp</p>
+        </div>
+
+        <!-- Шаг 2 -->
+        <div class="flex-1 text-center relative">
+          <div class="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto relative z-10">2</div>
+          <h3 class="font-semibold text-text mt-3">Подберём оборудование</h3>
+          <p class="text-text-secondary text-sm mt-1">Учтём бюджет, помещение и задачи</p>
+        </div>
+
+        <!-- Шаг 3 -->
+        <div class="flex-1 text-center relative">
+          <div class="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto relative z-10">3</div>
+          <h3 class="font-semibold text-text mt-3">Приходите в магазин</h3>
+          <p class="text-text-secondary text-sm mt-1">Потрогайте, сравните, примите решение</p>
+        </div>
+
+        <!-- Шаг 4 -->
+        <div class="flex-1 text-center relative">
+          <div class="w-10 h-10 rounded-full bg-primary text-white font-bold flex items-center justify-center mx-auto relative z-10">4</div>
+          <h3 class="font-semibold text-text mt-3">Доставим и поддержим</h3>
+          <p class="text-text-secondary text-sm mt-1">Гарантия, сервис, консультации</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Секция 4: CTA -->
+  <CTASection />
+</BaseLayout>
