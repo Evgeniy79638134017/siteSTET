@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Reviews from '../components/Reviews.astro';
+import CTASection from '../components/CTASection.astro';
+
+const cases = [
+  {
+    title: 'Мастер с нуля',
+    situation: 'Мастер хотела начать работать, но не знала с чего начать. Не слышала про социальный контракт. Бюджет — 0 рублей.',
+    solution: 'Рассказали про соцконтракт. Помогли составить бизнес-план. Подобрали полный комплект оборудования. Контролировали, чтобы всё вошло в бюджет.',
+    result: 'Получила 350 000 ₽ по контракту. Закупила оборудование на 250 000 ₽. Открыла кабинет маникюра и педикюра.',
+  },
+  {
+    title: 'От дома к салону',
+    situation: 'Мастер работала дома с минимальным набором. Клиенты были, но хотелось расти.',
+    solution: 'Начали с малого — докупили вытяжку, нормальный аппарат. Через полгода — педикюрное кресло.',
+    result: 'Набрала постоянную базу клиентов. Арендовала помещение. Оснастили салон полностью.',
+    quote: 'Марина всегда на связи, всегда посоветует.',
+  },
+  {
+    title: 'Развитие мастера',
+    situation: 'Мастер маникюра хотела добавить педикюр, но не знала, какое кресло выбрать и какой бюджет нужен.',
+    solution: 'Показали разницу между механическим и электрическим креслом. Подобрали комплект: кресло + аппарат + вытяжка.',
+    result: 'Через год доход вырос вдвое — маникюр и педикюр. Окупила кресло за 3 месяца.',
+  },
+  {
+    title: 'Возвращение с маркетплейса',
+    situation: 'Заказала оборудование на Wildberries — привлекли низкие цены. Пришёл брак. Возврат крупногабарита через ПВЗ — невозможно.',
+    solution: 'Пришла к нам. Потрогала, сравнила, задала вопросы. Получила честные ответы.',
+    result: 'Купила проверенное оборудование с гарантией. Больше на маркетплейсах не закупается.',
+    quote: 'Больше на ВБ закупаться никогда не будем.',
+  },
+];
+---
+
+<BaseLayout
+  title="Истории наших мастеров — Стиль Салон"
+  description="Реальные истории клиентов: от соцконтракта до собственного салона. Как мы помогаем мастерам создать бизнес мечты."
+>
+  <!-- Hero -->
+  <section class="bg-primary-light py-16 md:py-20">
+    <div class="max-w-7xl mx-auto px-4 md:px-6">
+      <nav class="flex gap-2 text-sm text-text-secondary mb-8">
+        <a href="/" class="hover:text-primary">Главная</a>
+        <span>/</span>
+        <span class="text-text">Кейсы</span>
+      </nav>
+      <h1 class="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-burgundy">Истории наших мастеров</h1>
+      <p class="text-text-secondary text-lg mt-4">Каждый из них начинал с вопроса — и мы помогли найти ответ</p>
+    </div>
+  </section>
+
+  <!-- Кейсы -->
+  <section class="bg-white py-12 md:py-16">
+    <div class="max-w-4xl mx-auto px-4 md:px-6">
+      {cases.map((item, i) => (
+        <article class:list={['mb-12', i === cases.length - 1 && 'mb-0']}>
+          <!-- Заголовок -->
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-full bg-primary text-white font-bold flex items-center justify-center text-lg shrink-0">
+              {i + 1}
+            </div>
+            <h2 class="font-heading text-2xl font-bold text-text">{item.title}</h2>
+          </div>
+
+          <!-- Ситуация -->
+          <div class="mt-6 bg-red-50 rounded-xl p-5">
+            <p class="text-red-700 font-semibold text-sm uppercase tracking-wide mb-2">Ситуация</p>
+            <p class="text-text-secondary">{item.situation}</p>
+          </div>
+
+          <!-- Решение -->
+          <div class="mt-4 bg-yellow-50 rounded-xl p-5">
+            <p class="text-yellow-700 font-semibold text-sm uppercase tracking-wide mb-2">Что мы сделали</p>
+            <p class="text-text-secondary">{item.solution}</p>
+          </div>
+
+          <!-- Результат -->
+          <div class="mt-4 bg-green-50 rounded-xl p-5">
+            <p class="text-green-700 font-semibold text-sm uppercase tracking-wide mb-2">Результат</p>
+            <p class="text-text-secondary">{item.result}</p>
+          </div>
+
+          <!-- Цитата -->
+          {item.quote && (
+            <div class="mt-4 border-l-4 border-primary pl-4">
+              <p class="italic text-text-secondary">&laquo;{item.quote}&raquo;</p>
+            </div>
+          )}
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- Отзывы -->
+  <Reviews />
+
+  <!-- CTA -->
+  <CTASection />
+</BaseLayout>
