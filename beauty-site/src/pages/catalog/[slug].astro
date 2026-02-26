@@ -24,12 +24,34 @@ const categoryLabels: Record<string, string> = {
 };
 
 const whatsappText = encodeURIComponent(`Здравствуйте! Интересует ${entry.data.title}`);
+
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": entry.data.title,
+  "description": entry.data.description,
+  ...(entry.data.brand ? { "brand": { "@type": "Brand", "name": entry.data.brand } } : {}),
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "RUB",
+    "price": entry.data.priceFrom.replace(/[^\d]/g, ''),
+    "availability": "https://schema.org/InStock",
+    "seller": {
+      "@type": "LocalBusiness",
+      "name": "Стиль Салон"
+    }
+  }
+};
 ---
 
 <BaseLayout
   title={`${entry.data.title} — Стиль Салон`}
   description={entry.data.description}
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(productJsonLd)} />
+  </Fragment>
+
   <!-- Hero -->
   <section class="bg-primary-light py-8 md:py-12">
     <div class="max-w-7xl mx-auto px-4 md:px-6">

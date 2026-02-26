@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Страница не найдена — Стиль Салон"
+  description="Запрашиваемая страница не найдена."
+>
+  <section class="min-h-[60vh] flex items-center justify-center bg-primary-light">
+    <div class="text-center px-6 py-20">
+      <p class="font-heading text-8xl md:text-9xl font-bold text-primary/20">404</p>
+      <h1 class="font-heading text-2xl md:text-3xl font-bold text-text mt-4">Страница не найдена</h1>
+      <p class="text-text-secondary mt-2">Возможно, страница была перемещена или удалена</p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center mt-8">
+        <a href="/" class="bg-primary text-white rounded-xl px-8 py-3 font-semibold hover:bg-primary-dark transition-all">
+          На главную
+        </a>
+        <a href="/catalog" class="border-2 border-primary text-primary rounded-xl px-8 py-3 font-semibold hover:bg-primary hover:text-white transition-all">
+          Смотреть каталог
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
